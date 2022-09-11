@@ -119,7 +119,7 @@ namespace dci::module::ppn::discovery
 
                 setIntensity(std::atof(c.get("intensity", "1").data()));
 
-                return cmt::readyFuture<>();
+                return cmt::readyFuture(None{});
             };
         }
     }
