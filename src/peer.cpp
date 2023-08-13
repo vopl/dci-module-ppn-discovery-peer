@@ -93,7 +93,7 @@ namespace dci::module::ppn::discovery
                     {
                         for(auto&[r, io] : _ios)
                         {
-                            if(utils::net::url::isCover(io.address().value, a.value))
+                            if(utils::uri::isCover(io.address().value, a.value))
                             {
                                 io.declared(a);
                             }
@@ -166,7 +166,7 @@ namespace dci::module::ppn::discovery
     /////////0/////////1/////////2/////////3/////////4/////////5/////////6/////////7
     void Peer::input(const transport::Address& remoteAddr, const node::link::Id& remoteId, transport::Address&& remoteAddr2)
     {
-        if(!utils::net::url::isCover(remoteAddr.value, remoteAddr2.value))
+        if(!utils::uri::isCover(remoteAddr.value, remoteAddr2.value))
         {
             return;
         }
@@ -181,7 +181,7 @@ namespace dci::module::ppn::discovery
 
         for(const transport::Address& a2 : _localAddresses)
         {
-            if(utils::net::url::isCover(remoteAddr.value, a2.value))
+            if(utils::uri::isCover(remoteAddr.value, a2.value))
             {
                 res.emplace_back(a2);
             }
